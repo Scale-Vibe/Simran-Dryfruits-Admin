@@ -3,7 +3,7 @@
   "short_name": "Simran Admin",
   "description": "Owner dashboard for Simran Dryfruits & Daily Needs",
   "start_url": "./admin-portal.html",
-  "scope": "./admin-portal.html",
+  "scope": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#F7F4EE",
