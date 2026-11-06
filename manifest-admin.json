@@ -1,0 +1,25 @@
+{
+  "name": "Simran Dryfruits – Owner Portal",
+  "short_name": "Simran Admin",
+  "description": "Owner dashboard for Simran Dryfruits & Daily Needs",
+  "start_url": "./admin-portal.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7F4EE",
+  "theme_color": "#5A2D16",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "simranadmin.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "simranadmin.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
