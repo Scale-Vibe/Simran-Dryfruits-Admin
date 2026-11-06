@@ -1,0 +1,21 @@
+
+{
+  "id": "/Simran-Dryfruits-Admin/",
+  "name": "SIMRAN Owner Portal",
+  "short_name": "Simran Admin",
+  "description": "SIMRAN Dryfruits store management dashboard.",
+  "start_url": "/Simran-Dryfruits-Admin/",
+  "scope": "/Simran-Dryfruits-Admin/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFDF6",
+  "theme_color": "#69351F",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "./simranadmin.png",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
