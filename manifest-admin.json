@@ -1,0 +1,42 @@
+{
+  "id": "/Simran-Dryfruits-Admin/",
+  "name": "Simran Admin Portal",
+  "short_name": "Simran Admin",
+  "description": "Owner dashboard for managing Simran Dryfruits orders, products & prices.",
+  "start_url": "/Simran-Dryfruits-Admin/admin-portal.html",
+  "scope": "/Simran-Dryfruits-Admin/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7F4EE",
+  "theme_color": "#5A2D16",
+  "lang": "en",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "simranadmin.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "simranadmin.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "simranadmin.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "simranadmin.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
