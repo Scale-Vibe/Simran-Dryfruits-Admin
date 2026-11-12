@@ -1,5 +1,5 @@
 /* Simran Dryfruits — Admin Portal Service Worker */
-const CACHE = 'simran-admin-v2';
+const CACHE = 'simran-admin-v3';
 const ASSETS = [
   './',
   './simranadmin.png',
@@ -23,7 +23,7 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
+  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== self.location.origin) return;
   e.respondWith(
     fetch(e.request).catch(() => caches.match(e.request))
   );
