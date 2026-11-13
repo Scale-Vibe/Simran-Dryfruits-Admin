@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" translate="no">
 <head>
 <meta charset="utf-8">
@@ -222,7 +222,7 @@ html.dark .toast{background:#F3EEE4;color:#171A15}
   <section data-page="orders" hidden>
     <div class="ph-head"><div><div class="kicker">Fulfilment</div><h2>Orders</h2><p>Naye orders turant dikhte hain. Har order ka status ek tap mein badlein.</p></div><button class="btn sm ghost" data-a="nav" data-v="cancellations">Cancellation history</button></div>
     <div class="seg" id="oFilters"></div>
-    <input id="oq" type="search" placeholder="Search order code or phone" style="margin-bottom:14px">
+    <input id="oq" type="search" placeholder="Search order code, phone or customer name" style="margin-bottom:14px">
     <div class="stack" id="oList"></div>
   </section>
 
@@ -632,7 +632,7 @@ function renderOrders(){
   const O=D.orders||[];
   $('#oFilters').innerHTML=FILTERS.map(([k,l])=>`<button class="${ofilter===k?'on':''}" data-a="ofilter" data-f="${k}">${l}<b>${O.filter(o=>passes(k,o)).length}</b></button>`).join('');
   const q=oq.trim().toLowerCase();
-  const L=O.filter(o=>passes(ofilter,o)&&(!q||String(o.code||o.id).toLowerCase().includes(q)||String(o.phone).includes(q)));
+  const L=O.filter(o=>passes(ofilter,o)&&(!q||String(o.code||o.id).toLowerCase().includes(q)||String(o.phone).includes(q)||String(o.name||"").toLowerCase().includes(q)));
   $('#oList').innerHTML=L.length?L.map(orderCard).join(''):`<div class="empty"><i class="ri-inbox-line"></i>${O.length?'Is filter mein koi order nahi.':'Abhi koi order nahi.'}</div>`;
 }
 function nextFor(o){
@@ -673,7 +673,7 @@ function orderCard(o){
     </div>
     <ul class="lines">${(o.items||[]).map(i=>`<li><span>${esc(i.name)} ${wl(i.g)} × ${i.q}</span><span>${money(i.amt)}</span></li>`).join('')}</ul>
     ${o.deliveryMode==='delivery'&&o.address?`<p class="note">📍 Delivery: ${esc(o.address)}</p>`:''}${cur==='cancelled'?`<p class="note">Cancellation: ${esc(o.cancellationReason||'Not specified')}${o.cancellationNote?`<br>${esc(o.cancellationNote)}`:''}</p>`:''}${o.note?`<p class="note">📝 ${esc(o.note)}</p>`:''}
-    <div class="tot"><span class="sub">${esc(String(o.paymentStatus||'unpaid').replace(/_/g,' '))}</span><b>${money(o.total)}</b></div>
+    <div class="tot" style="border-top:2px solid var(--line);margin-top:8px;padding-top:12px"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:2px">Total payable by customer</div><div style="display:flex;justify-content:space-between;align-items:center"><span class="pill ${esc(String(o.paymentStatus||'unpaid').replace(/_/g,'-'))}">${esc(String(o.paymentStatus||'unpaid').replace(/_/g,' '))}</span><b style="font-size:22px">${money(o.total)}</b></div></div>
     ${payBtn}${action}${cur==='cancelled'?`<div class="acts"><a class="btn wa" href="${wa}" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> Notify customer on WhatsApp</a></div>`:''}
   </article>`;
 }
